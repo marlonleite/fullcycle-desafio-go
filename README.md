@@ -1,23 +1,21 @@
 # Fullcycle rocks!
 
-## Merge this repo
+## Clone this repository
 
-
-## Docker Hub
-[https://hub.docker.com/repository/docker/marlonleiteal/golang]
-
-## Use
-
-### Build the image
+### Build a docker image:
 ```
 docker build -t marlonleiteal/golang:prod .
 ```
 
-### CMD
+### Run the docker container:
 ```
 docker run --rm --name golang marlonleiteal/golang:prod
 ```
-### Result
+
+### Result must be:
 ```
 Fullcycle, Rocks!
 ```
+
+## Docker Hub Repository Image
+[https://hub.docker.com/repository/docker/marlonleiteal/golang]
