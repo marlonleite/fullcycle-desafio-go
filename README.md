@@ -1,6 +1,6 @@
 # Fullcycle rocks!
 
-## Clone this repository
+- Clone this repository into your pc.
 
 ### Build a docker image:
 ```
