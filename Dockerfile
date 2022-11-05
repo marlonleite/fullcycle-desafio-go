@@ -1,10 +1,10 @@
-FROM golang:1.18-alpine
-
+FROM golang:1.18 AS builder
 WORKDIR /usr/src/app/
-
 COPY . .
-
 RUN go mod download
 RUN go mod verify
 
-ENTRYPOINT ["go", "run", "main.go"]
+FROM golang:1.18-alpine
+WORKDIR /usr/src/app/
+COPY --from=builder /usr/src/app/ .
+CMD ["go", "run", "main.go"]
