@@ -6,5 +6,5 @@ RUN go get -d -v
 RUN go build -o /usr/src/app/main
 
 FROM scratch
-COPY --from=builder /usr/src/app/main /usr/src/app/main
-ENTRYPOINT ["/usr/src/app/main"]
+COPY --from=builder /usr/src/app/main /usr/src/app
+ENTRYPOINT ["/usr/src/app"]
