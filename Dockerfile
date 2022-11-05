@@ -1,10 +1,10 @@
-FROM golang:1.18 AS builder
+FROM golang:1.18-alpine AS builder
+RUN apk update && apk add --no-cache git
 WORKDIR /usr/src/app/
 COPY . .
-RUN go mod download
-RUN go mod verify
+RUN go get -d -v
+RUN go build -o /usr/src/app/main
 
-FROM golang:1.18-alpine
-WORKDIR /usr/src/app/
-COPY --from=builder /usr/src/app/ .
-CMD ["go", "run", "main.go"]
+FROM scratch
+COPY --from=builder /usr/src/app /usr/src/app
+ENTRYPOINT ["/usr/src/app/main"]
